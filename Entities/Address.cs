@@ -2,7 +2,6 @@
 
 /// <summary>Address Class</summary>
 public class Address {
-
     /// <summary>Gets or sets the street.</summary>
     /// <value>The street.</value>
     public string? Street { get; set; }

@@ -1,9 +1,4 @@
-﻿using MongoDB.Driver.Core.Events;
-using System.Runtime.CompilerServices;
-using WebApi.Entities;
-using static WebApi.Entities.DestinationTradeshowInfo;
-
-namespace WebApi.Helpers;
+﻿namespace WebApi.Entities;
 
 public static class EnumUtils {
 
@@ -62,10 +57,10 @@ public static class EnumUtils {
     /// <returns>Description</returns>
     public static string Description(this StatusType status) {
         if (_listEnum[(int)status] == null) {
-            _listEnum[(int)StatusType.UNKNOWN] = "Unknown";
-            _listEnum[(int)StatusType.DELETED] = "Deleted";
+            _listEnum[(int)StatusType.UNKNOWN]  = "Unknown";
+            _listEnum[(int)StatusType.DELETED]  = "Deleted";
             _listEnum[(int)StatusType.TEMPLATE] = "Template";
-            _listEnum[(int)StatusType.DRAFT] = "Draft";
+            _listEnum[(int)StatusType.DRAFT]    = "Draft";
             _listEnum[(int)StatusType.COMPLETE] = "Complete";
         }
 
@@ -77,10 +72,10 @@ public static class EnumUtils {
     /// <returns></returns>
     public static string Code(this StatusType status) {
         if (_listEnum[_codeOffset + (int)status] == null) {
-            _listEnum[_codeOffset + (int)StatusType.UNKNOWN] = "?";
-            _listEnum[_codeOffset + (int)StatusType.DELETED] = " ";
+            _listEnum[_codeOffset + (int)StatusType.UNKNOWN]  = "?";
+            _listEnum[_codeOffset + (int)StatusType.DELETED]  = " ";
             _listEnum[_codeOffset + (int)StatusType.TEMPLATE] = "T";
-            _listEnum[_codeOffset + (int)StatusType.DRAFT] = "I";
+            _listEnum[_codeOffset + (int)StatusType.DRAFT]    = "I";
             _listEnum[_codeOffset + (int)StatusType.COMPLETE] = "C";
         }
 
@@ -113,7 +108,7 @@ public static class EnumUtils {
     /// <param name="code">The code.</param>
     public static void Set(this StatusType status, string code) {
         StatusType? val = FindStatusType(code);
-        status = val ?? status; 
+        status = val ?? status;
     }
 
     /// <summary>Descriptions the specified source type.</summary>
@@ -152,13 +147,13 @@ public static class EnumUtils {
     /// <summary>Descriptions the specified location type.</summary>
     /// <param name="locationType">Type of the location.</param>
     /// <returns>Description</returns>
-    public static string Description(this LocationType locationType) { 
-        if (_listEnum[(int)locationType] == null) { 
-            _listEnum[(int)LocationType.COMMERCIAL_WITH_DOCK] = "Commercial with forklift or dock";
+    public static string Description(this LocationType locationType) {
+        if (_listEnum[(int)locationType] == null) {
+            _listEnum[(int)LocationType.COMMERCIAL_WITH_DOCK]    = "Commercial with forklift or dock";
             _listEnum[(int)LocationType.COMMERCIAL_WITHOUT_DOCK] = "Commercial without forklift or dock";
-            _listEnum[(int)LocationType.NON_COMMERCIAL] = "Residential or non-commercial";
-            _listEnum[(int)LocationType.TRADESHOW] = "Tradeshow";
-            _listEnum[(int)LocationType.TERMINAL] = "Pickup or dropoff at Terminal";
+            _listEnum[(int)LocationType.NON_COMMERCIAL]          = "Residential or non-commercial";
+            _listEnum[(int)LocationType.TRADESHOW]               = "Tradeshow";
+            _listEnum[(int)LocationType.TERMINAL]                = "Pickup or dropoff at Terminal";
         }
 
         return _listEnum[(int)locationType];
@@ -169,11 +164,11 @@ public static class EnumUtils {
     /// <returns></returns>
     public static string Code(this LocationType locationType) {
         if (_listEnum[_codeOffset + (int)locationType] == null) {
-            _listEnum[_codeOffset + (int)LocationType.COMMERCIAL_WITH_DOCK] = "CWDF";
+            _listEnum[_codeOffset + (int)LocationType.COMMERCIAL_WITH_DOCK]    = "CWDF";
             _listEnum[_codeOffset + (int)LocationType.COMMERCIAL_WITHOUT_DOCK] = "CXDF";
-            _listEnum[_codeOffset + (int)LocationType.NON_COMMERCIAL] = "RESD";
-            _listEnum[_codeOffset + (int)LocationType.TRADESHOW] = "SHOW";
-            _listEnum[_codeOffset + (int)LocationType.TERMINAL] = "TERM";
+            _listEnum[_codeOffset + (int)LocationType.NON_COMMERCIAL]          = "RESD";
+            _listEnum[_codeOffset + (int)LocationType.TRADESHOW]               = "SHOW";
+            _listEnum[_codeOffset + (int)LocationType.TERMINAL]                = "TERM";
         }
 
         return _listEnum[_codeOffset + (int)locationType];
@@ -269,14 +264,14 @@ public static class EnumUtils {
     /// <returns>Description</returns>
     public static string Description(this CarrierCode carrierCode) {
         if (_listEnum[(int)carrierCode] == null) {
-            _listEnum[(int)CarrierCode.RDWY] = "Yellow";
+            _listEnum[(int)CarrierCode.RDWY]   = "Yellow";
             _listEnum[(int)CarrierCode.YELLOW] = "My Yellow"; // Duplicate RDWY
-            _listEnum[(int)CarrierCode.HMES] = "Holland";
-            _listEnum[(int)CarrierCode.RETL] = "Reddaway";
-            _listEnum[(int)CarrierCode.NPME] = "NewPenn";
-            _listEnum[(int)CarrierCode.REIM] = "YRC Freight";
-            _listEnum[(int)CarrierCode.MEIQ] = "Yellow Logistics";
-            _listEnum[(int)CarrierCode.OTHR] = "Other";
+            _listEnum[(int)CarrierCode.HMES]   = "Holland";
+            _listEnum[(int)CarrierCode.RETL]   = "Reddaway";
+            _listEnum[(int)CarrierCode.NPME]   = "NewPenn";
+            _listEnum[(int)CarrierCode.REIM]   = "YRC Freight";
+            _listEnum[(int)CarrierCode.MEIQ]   = "Yellow Logistics";
+            _listEnum[(int)CarrierCode.OTHR]   = "Other";
         }
 
         return _listEnum[(int)carrierCode];
@@ -325,7 +320,7 @@ public static class EnumUtils {
     /// <param name="handlingUnit">The handling unit.</param>
     /// <returns></returns>
     public static string Description(this HandlingUnitType handlingUnit) {
-        if (_listEnum[(int)handlingUnit] == null) { 
+        if (_listEnum[(int)handlingUnit] == null) {
             _listEnum[(int)HandlingUnitType.AMM] = "Ammo Pack";
             _listEnum[(int)HandlingUnitType.BAG] = "Bag";
             _listEnum[(int)HandlingUnitType.BAL] = "Bale";
@@ -495,25 +490,25 @@ public static class EnumUtils {
     /// <param name="freightClass">The code.</param>
     /// <returns></returns>
     public static string Description(this FreightClassCode freightClass) {
-        if (_listEnum[(int)freightClass] == null) { 
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_50] = "50";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_55] =  "55";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_60] =  "60";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_65] =  "65";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_70] = "70";
+        if (_listEnum[(int)freightClass] == null) {
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_50]   = "50";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_55]   = "55";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_60]   = "60";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_65]   = "65";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_70]   = "70";
             _listEnum[(int)FreightClassCode.FREIGHT_CLASS_77_5] = "77.5";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_85] = "85";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_85]   = "85";
             _listEnum[(int)FreightClassCode.FREIGHT_CLASS_92_5] = "92.5";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_100] = "100";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_110] = "110";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_125] = "125";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_150] = "150";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_175] = "175";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_200] = "200";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_250] = "250";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_300] = "300";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_400] = "400";
-            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_500] = "500";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_100]  = "100";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_110]  = "110";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_125]  = "125";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_150]  = "150";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_175]  = "175";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_200]  = "200";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_250]  = "250";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_300]  = "300";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_400]  = "400";
+            _listEnum[(int)FreightClassCode.FREIGHT_CLASS_500]  = "500";
         }
 
         return _listEnum[(int)freightClass];
@@ -566,7 +561,7 @@ public static class EnumUtils {
     /// <param name="hazardCode">The Hazardous Code.</param>
     /// <returns></returns>
     public static string Description(this HazardousClassCode hazardCode) {
-        if (_listEnum[(int)hazardCode] == null) { 
+        if (_listEnum[(int)hazardCode] == null) {
             _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_1_4B] = "Explosive 1.4B";
             _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_1_4C] = "Explosive 1.4C";
             _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_1_4D] = "Explosive 1.4D";
@@ -576,20 +571,20 @@ public static class EnumUtils {
             _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_1_4S] = "Explosive 1.4S";
             _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_1_5D] = "Blasting Agent";
             _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_1_6N] = "Insensitive Detonating Substance";
-            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_2_1] = "Flammable Gas";
-            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_2_2] = "Non-Flammable Gas";
-            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_2_3] = "Poisonous Gas";
-            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_3] = "Flammable Liquid";
-            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_4_1] = "Flammable Solid";
-            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_4_2] = "Spontaneously Combustible Material";
-            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_4_3] = "Dangerous When Wet";
-            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_5_1] = "Oxidizer";
-            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_5_2] = "Organic Peroxide";
-            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_6_1] = "Poisonous Material";
-            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_7] = "Radioactive Material";
-            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_8] = "Corrosive Material";
-            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_9] = "Misc. Hazardous Material";
-            _listEnum[(int)HazardousClassCode.COMBUSTIBLE_LIQUID] = "Compustible Liquid";
+            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_2_1]  = "Flammable Gas";
+            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_2_2]  = "Non-Flammable Gas";
+            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_2_3]  = "Poisonous Gas";
+            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_3]    = "Flammable Liquid";
+            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_4_1]  = "Flammable Solid";
+            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_4_2]  = "Spontaneously Combustible Material";
+            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_4_3]  = "Dangerous When Wet";
+            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_5_1]  = "Oxidizer";
+            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_5_2]  = "Organic Peroxide";
+            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_6_1]  = "Poisonous Material";
+            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_7]    = "Radioactive Material";
+            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_8]    = "Corrosive Material";
+            _listEnum[(int)HazardousClassCode.HAZ_CLASS_CODE_9]    = "Misc. Hazardous Material";
+            _listEnum[(int)HazardousClassCode.COMBUSTIBLE_LIQUID]  = "Compustible Liquid";
         }
 
         return _listEnum[(int)hazardCode];
@@ -631,20 +626,20 @@ public static class EnumUtils {
             _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_1_4S] = "1.4S";
             _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_1_5D] = "1.5D";
             _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_1_6N] = "1.6N";
-            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_2_1] = "2.1";
-            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_2_2] = "2.2";
-            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_2_3] = "2.3";
-            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_3] = "3";
-            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_4_1] = "4.1";
-            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_4_2] = "4.2";
-            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_4_3] = "4.3";
-            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_5_1] = "5.1";
-            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_5_2] = "5.2";
-            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_6_1] = "6.1";
-            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_7] = "7";
-            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_8] = "8";
-            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_9] = "9";
-            _listEnum[_codeOffset + (int)HazardousClassCode.COMBUSTIBLE_LIQUID] = "CL";
+            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_2_1]  = "2.1";
+            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_2_2]  = "2.2";
+            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_2_3]  = "2.3";
+            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_3]    = "3";
+            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_4_1]  = "4.1";
+            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_4_2]  = "4.2";
+            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_4_3]  = "4.3";
+            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_5_1]  = "5.1";
+            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_5_2]  = "5.2";
+            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_6_1]  = "6.1";
+            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_7]    = "7";
+            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_8]    = "8";
+            _listEnum[_codeOffset + (int)HazardousClassCode.HAZ_CLASS_CODE_9]    = "9";
+            _listEnum[_codeOffset + (int)HazardousClassCode.COMBUSTIBLE_LIQUID]  = "CL";
         }
 
         return _listEnum[_codeOffset + (int)hazardousClass];
@@ -719,9 +714,9 @@ public static class EnumUtils {
     /// <param name="packingGroup">The packing group.</param>
     /// <returns>Description</returns>
     public static string Description(this PackingGroupCode packingGroup) {
-        if (_listEnum[(int)packingGroup] == null) {         
-            _listEnum[(int)PackingGroupCode.I] = "High danger";
-            _listEnum[(int)PackingGroupCode.II] = "Medium danger";
+        if (_listEnum[(int)packingGroup] == null) {
+            _listEnum[(int)PackingGroupCode.I]   = "High danger";
+            _listEnum[(int)PackingGroupCode.II]  = "Medium danger";
             _listEnum[(int)PackingGroupCode.III] = "Low danger";
         }
 
@@ -759,10 +754,10 @@ public static class EnumUtils {
     /// <returns>Description</returns>
     public static string Description(this RegulationCode reg) {
         if (_listEnum[(int)reg] == null) {
-            _listEnum[(int)RegulationCode.DOT] = "DOT";
+            _listEnum[(int)RegulationCode.DOT]  = "DOT";
             _listEnum[(int)RegulationCode.ICAO] = "ICAO";
             _listEnum[(int)RegulationCode.IMDG] = "IMDG";
-            _listEnum[(int)RegulationCode.TDG] = "TDG";
+            _listEnum[(int)RegulationCode.TDG]  = "TDG";
         }
 
         return _listEnum[(int)reg];
@@ -773,10 +768,10 @@ public static class EnumUtils {
     /// <returns></returns>
     public static string Code(this RegulationCode reg) {
         if (_listEnum[_codeOffset + (int)reg] == null) {
-            _listEnum[_codeOffset + (int)RegulationCode.DOT] = "S";
+            _listEnum[_codeOffset + (int)RegulationCode.DOT]  = "S";
             _listEnum[_codeOffset + (int)RegulationCode.ICAO] = "C";
             _listEnum[_codeOffset + (int)RegulationCode.IMDG] = "M";
-            _listEnum[_codeOffset + (int)RegulationCode.TDG] = "T";
+            _listEnum[_codeOffset + (int)RegulationCode.TDG]  = "T";
         }
 
         return _listEnum[_codeOffset + (int)reg];
@@ -845,12 +840,12 @@ public static class EnumUtils {
     /// <param name="serviceLevel">The service level.</param>
     /// <returns></returns>
     public static string Description(this ServiceLevelCode serviceLevel) {
-        if (_listEnum[(int)serviceLevel] == null) { 
-            _listEnum[(int)ServiceLevelCode.STANDARD] = "Standard";
-            _listEnum[(int)ServiceLevelCode.GUARANTEED] = "Guaranteed";
+        if (_listEnum[(int)serviceLevel] == null) {
+            _listEnum[(int)ServiceLevelCode.STANDARD]      = "Standard";
+            _listEnum[(int)ServiceLevelCode.GUARANTEED]    = "Guaranteed";
             _listEnum[(int)ServiceLevelCode.TIME_CRITICAL] = "Time Critical";
-            _listEnum[(int)ServiceLevelCode.QUOTE] = "Quote";
-            _listEnum[(int)ServiceLevelCode.SPOT_VOLUME] = "Spot Volume";
+            _listEnum[(int)ServiceLevelCode.QUOTE]         = "Quote";
+            _listEnum[(int)ServiceLevelCode.SPOT_VOLUME]   = "Spot Volume";
         }
 
         return string.Empty;
@@ -886,11 +881,11 @@ public static class EnumUtils {
     /// <param name="serviceType">Type of the service.</param>
     /// <returns></returns>
     public static string Description(this ServiceTypeCode serviceType) {
-        if (_listEnum[(int)serviceType] == null) { 
-            _listEnum[(int)ServiceTypeCode.NOON] = "by Noon";
-            _listEnum[(int)ServiceTypeCode.PM5] = "by 5 PM (17:00)";
+        if (_listEnum[(int)serviceType] == null) {
+            _listEnum[(int)ServiceTypeCode.NOON]     = "by Noon";
+            _listEnum[(int)ServiceTypeCode.PM5]      = "by 5 PM (17:00)";
             _listEnum[(int)ServiceTypeCode.MULTIDAY] = "Multiday Window";
-            _listEnum[(int)ServiceTypeCode.HOUR] = "Hour Window";
+            _listEnum[(int)ServiceTypeCode.HOUR]     = "Hour Window";
         }
 
         return _listEnum[(int)serviceType];
@@ -926,29 +921,29 @@ public static class EnumUtils {
     /// <param name="referenceNumber">The reference number.</param>
     /// <returns></returns>
     public static string Description(this ReferenceNumberType referenceNumber) {
-        if (_listEnum[(int)referenceNumber] == null) { 
-            _listEnum[(int)ReferenceNumberType.BOL_M_NUMBER] = "Bill of Lading Number";
-            _listEnum[(int)ReferenceNumberType.BOL_NUMBER] = "Bill of Lading Number";
-            _listEnum[(int)ReferenceNumberType.BOOKING_NUMBER] = "Booking Number";
-            _listEnum[(int)ReferenceNumberType.CARTON_NUMBER] = "Carton Number";
-            _listEnum[(int)ReferenceNumberType.CONTRACT_NUMBER] = "Contract Number";
-            _listEnum[(int)ReferenceNumberType.CUSTOMER_NUMBER] = "Customer Number";
-            _listEnum[(int)ReferenceNumberType.CUSTOERM_ORDER_NUMBER] = "Customer Order Number";
-            _listEnum[(int)ReferenceNumberType.DELIVERY_NUMBER] = "Delivery Number";
-            _listEnum[(int)ReferenceNumberType.FACTURA_NUMBER] = "Factura Number";
-            _listEnum[(int)ReferenceNumberType.GENERAL_REF_NUMBER] = "General Ref Number";
-            _listEnum[(int)ReferenceNumberType.LOADING_NUMBER] = "Loading Number";
-            _listEnum[(int)ReferenceNumberType.MANIFEST_NUMBER] = "Manifest Number";
-            _listEnum[(int)ReferenceNumberType.PEDIMENTO_NUMBER] = "Pedimento Number";
-            _listEnum[(int)ReferenceNumberType.PRO_NUMBER] = "Pro Number";
-            _listEnum[(int)ReferenceNumberType.PROMOTIONAL_DEAL] = "Promotional Deal";
-            _listEnum[(int)ReferenceNumberType.PURCHASE_ORDER_NUMBER] = "Purchase Order Number";
-            _listEnum[(int)ReferenceNumberType.QUOTE_NUMBER] = "Quote Number";
-            _listEnum[(int)ReferenceNumberType.REQUESTED_ARRIVAL_DATE] = "Requested Arrival Date";
-            _listEnum[(int)ReferenceNumberType.RETURN_AUTHORIZATION] = "Return Authorization";
-            _listEnum[(int)ReferenceNumberType.SEAL_NUMBER] = "Seal Number";
-            _listEnum[(int)ReferenceNumberType.SELLERS_INVOICE_NUMBER] = "Seller's Invoice Number";
-            _listEnum[(int)ReferenceNumberType.SHIPPERS_IDENTIFYING_NUMBER] = "Shipper's Identifying Number";
+        if (_listEnum[(int)referenceNumber] == null) {
+            _listEnum[(int)ReferenceNumberType.BOL_M_NUMBER]                  = "Bill of Lading Number";
+            _listEnum[(int)ReferenceNumberType.BOL_NUMBER]                    = "Bill of Lading Number";
+            _listEnum[(int)ReferenceNumberType.BOOKING_NUMBER]                = "Booking Number";
+            _listEnum[(int)ReferenceNumberType.CARTON_NUMBER]                 = "Carton Number";
+            _listEnum[(int)ReferenceNumberType.CONTRACT_NUMBER]               = "Contract Number";
+            _listEnum[(int)ReferenceNumberType.CUSTOMER_NUMBER]               = "Customer Number";
+            _listEnum[(int)ReferenceNumberType.CUSTOERM_ORDER_NUMBER]         = "Customer Order Number";
+            _listEnum[(int)ReferenceNumberType.DELIVERY_NUMBER]               = "Delivery Number";
+            _listEnum[(int)ReferenceNumberType.FACTURA_NUMBER]                = "Factura Number";
+            _listEnum[(int)ReferenceNumberType.GENERAL_REF_NUMBER]            = "General Ref Number";
+            _listEnum[(int)ReferenceNumberType.LOADING_NUMBER]                = "Loading Number";
+            _listEnum[(int)ReferenceNumberType.MANIFEST_NUMBER]               = "Manifest Number";
+            _listEnum[(int)ReferenceNumberType.PEDIMENTO_NUMBER]              = "Pedimento Number";
+            _listEnum[(int)ReferenceNumberType.PRO_NUMBER]                    = "Pro Number";
+            _listEnum[(int)ReferenceNumberType.PROMOTIONAL_DEAL]              = "Promotional Deal";
+            _listEnum[(int)ReferenceNumberType.PURCHASE_ORDER_NUMBER]         = "Purchase Order Number";
+            _listEnum[(int)ReferenceNumberType.QUOTE_NUMBER]                  = "Quote Number";
+            _listEnum[(int)ReferenceNumberType.REQUESTED_ARRIVAL_DATE]        = "Requested Arrival Date";
+            _listEnum[(int)ReferenceNumberType.RETURN_AUTHORIZATION]          = "Return Authorization";
+            _listEnum[(int)ReferenceNumberType.SEAL_NUMBER]                   = "Seal Number";
+            _listEnum[(int)ReferenceNumberType.SELLERS_INVOICE_NUMBER]        = "Seller's Invoice Number";
+            _listEnum[(int)ReferenceNumberType.SHIPPERS_IDENTIFYING_NUMBER]   = "Shipper's Identifying Number";
             _listEnum[(int)ReferenceNumberType.TRANSPORTATION_CONTORL_NUMBER] = "Transportation Control Number";
         }
 
@@ -984,10 +979,10 @@ public static class EnumUtils {
     /// <summary>Descriptions the specified deliver to.</summary>
     /// <param name="deliverTo">The deliver to.</param>
     /// <returns></returns>
-    public static string Description(this DeliverToCode deliverTo) {
+    public static string Description(this DestinationTradeshowInfo.DeliverToCode deliverTo) {
         if (_listEnum[(int)deliverTo] == null) {
-            _listEnum[(int)DeliverToCode.A] = "Advance warehouse";
-            _listEnum[(int)DeliverToCode.S] = "Show Site";
+            _listEnum[(int)DestinationTradeshowInfo.DeliverToCode.A] = "Advance warehouse";
+            _listEnum[(int)DestinationTradeshowInfo.DeliverToCode.S] = "Show Site";
         }
 
         return _listEnum[(int)deliverTo];
@@ -996,16 +991,16 @@ public static class EnumUtils {
     /// <summary>Codes the specified deliver to.</summary>
     /// <param name="deliverTo">The deliver to.</param>
     /// <returns></returns>
-    public static string Code(this DeliverToCode deliverTo) {
+    public static string Code(this DestinationTradeshowInfo.DeliverToCode deliverTo) {
         return deliverTo.ToString();
     }
 
     /// <summary>Finds the deliver to code.</summary>
     /// <param name="code">The code.</param>
     /// <returns></returns>
-    public static DeliverToCode? FindDeliverToCode(string code) { 
+    public static DestinationTradeshowInfo.DeliverToCode? FindDeliverToCode(string code) {
         try {
-            return Enum.Parse<DeliverToCode>(code);
+            return Enum.Parse<DestinationTradeshowInfo.DeliverToCode>(code);
         } catch {
             return null;
         }
@@ -1014,8 +1009,8 @@ public static class EnumUtils {
     /// <summary>Sets the specified code.</summary>
     /// <param name="deliverTo">The deliver to.</param>
     /// <param name="code">The code.</param>
-    public static void Set(this DeliverToCode deliverTo, string code) {
-        DeliverToCode? val = FindDeliverToCode(code);
+    public static void Set(this DestinationTradeshowInfo.DeliverToCode deliverTo, string code) {
+        DestinationTradeshowInfo.DeliverToCode? val = FindDeliverToCode(code);
         deliverTo = val ?? deliverTo;
     }
 }

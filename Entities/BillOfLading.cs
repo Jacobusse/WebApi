@@ -5,7 +5,6 @@ namespace WebApi.Entities;
 
 /// <summary>Bill of Lading Class</summary>
 public class BillOfLading {
-
     /// <summary>Gets or sets the identifier.</summary>
     /// <value>The identifier.</value>
     [BsonId]

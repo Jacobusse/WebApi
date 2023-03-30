@@ -2,7 +2,6 @@
 
 /// <summary>Settings Container for Web API</summary>
 public class WebApiDbSettings {
-
     /// <summary>Gets or sets the connection string.</summary>
     /// <value>The connection string.</value>
     public string ConnectionString { get; set; } = null!;

@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace WebApi.Controllers;
+﻿namespace WebApi.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Entities;
-using WebApi.Helpers;
 using WebApi.Services;
 
 [ApiController]
@@ -22,4 +19,24 @@ public class BillOfLadingController : Controller {
         return Ok(await _service.GetAll());
     }
 
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Contact>> Locate(string id) {
+        return Ok(await _service.Locate(new StandardIdentity(id)));
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<StandardIdentity>> Insert([FromBody] BillOfLading bol) {
+        return Ok(await _service.Insert(bol));
+    }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult<StandardIdentity>> Update(string id, [FromBody] BillOfLading bol) {
+        return Ok(await _service.Update(new StandardIdentity(id), bol));
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> Delete(string id) {
+        await _service.Delete(new StandardIdentity(id));
+        return Ok();
+    }
 }

@@ -24,6 +24,7 @@ services.AddSwaggerGen();
 
 // Configure DI for application services
 services.AddSingleton<IContactService, ContactService>();
+services.AddSingleton<IBillOfLadingService, BillOfLadingService>();
 
 var app = builder.Build();
 

@@ -2,7 +2,6 @@
 
 /// <summary>Identity Class for Contact</summary>
 public class StandardIdentity {
-
     /// <summary>Gets or sets the identifier.</summary>
     /// <value>The identifier.</value>
     public string Id { get; set; } = String.Empty;

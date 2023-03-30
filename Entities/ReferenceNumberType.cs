@@ -8,7 +8,7 @@ public enum ReferenceNumberType {
     CONTRACT_NUMBER               = 69,
     CUSTOMER_NUMBER               = 70,
     CUSTOERM_ORDER_NUMBER         = 71,
-    DELIVERY_NUMBER               = 72,
+    DELIVERY_NUMBER               = 72, 
     FACTURA_NUMBER                = 73,
     GENERAL_REF_NUMBER            = 74,
     LOADING_NUMBER                = 75,

@@ -29,10 +29,16 @@ public class ContactService : IContactService {
         _tableConatct = mongoDb.GetCollection<Contact>(options.Value.ContactCollectionName);
     }
 
+    /// <summary>Gets all. Used for examples.</summary>
+    /// <returns>All Contacts</returns>
     public async Task<List<Contact>> GetAll() {
         return await _tableConatct.Find(_ => true).ToListAsync();
     }
 
+    /// <summary>Locates the specified identifier.</summary>
+    /// <param name="id">The identifier.</param>
+    /// <returns>Single Contact</returns>
+    /// <exception cref="System.Collections.Generic.KeyNotFoundException">User not found</exception>
     public async Task<Contact> Locate(StandardIdentity id) {
         Contact contact = await _tableConatct.Find(c => c.Id == id.Id).FirstOrDefaultAsync();
         if (contact == null)
@@ -41,6 +47,10 @@ public class ContactService : IContactService {
         return contact;
     }
 
+    /// <summary>Inserts the specified contact.</summary>
+    /// <param name="contact">The contact.</param>
+    /// <returns>Identity Class</returns>
+    /// <exception cref="System.Collections.Generic.KeyNotFoundException">User not added</exception>
     public async Task<StandardIdentity> Insert(Contact contact) {
         await _tableConatct.InsertOneAsync(contact);
         if (contact?.Id == null)
@@ -49,6 +59,11 @@ public class ContactService : IContactService {
         return new StandardIdentity(contact.Id);
     }
 
+    /// <summary>Updates the id and contact.</summary>
+    /// <param name="id">The identifier.</param>
+    /// <param name="contact">The contact.</param>
+    /// <returns>Identity Class</returns>
+    /// <exception cref="System.Collections.Generic.KeyNotFoundException">User not updated</exception>
     public async Task<StandardIdentity> Update(StandardIdentity id, Contact contact) {
         await _tableConatct.ReplaceOneAsync(c => c.Id == id.Id, contact);
         if (contact?.Id == null)
@@ -57,6 +72,9 @@ public class ContactService : IContactService {
         return new StandardIdentity(contact.Id);
     }
 
+    /// <summary>Modifies the specified entity. Upsert Action</summary>
+    /// <param name="entity">The entity.</param>
+    /// <returns>Identity Class</returns>
     public async Task<StandardIdentity> Modify(Contact entity) {
         if (String.IsNullOrEmpty(entity.Id)) {
             return await Insert(entity);
@@ -65,10 +83,16 @@ public class ContactService : IContactService {
         }
     }
 
+    /// <summary>Deletes the specified identifier.</summary>
+    /// <param name="id">The identifier.</param>
     public async Task Delete(StandardIdentity id) {
         await _tableConatct.DeleteOneAsync(c => c.Id == id.Id);
     }
 
+    /// <summary>Searches the specified cryteria.</summary>
+    /// <param name="email">The email.</param>
+    /// <param name="phone">The phone.</param>
+    /// <returns>Matching Contacts</returns>
     public async Task<List<Contact>> Search(string? email, string? phone) {
         return await _tableConatct
             .Find(c => (c.Email == email && !string.IsNullOrEmpty(email))
